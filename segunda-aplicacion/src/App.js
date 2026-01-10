@@ -12,7 +12,7 @@ function App() {
     videoRef.current.play() // Creamos un play para ejecutar al video de referecia ref=videoRef.
   };
 
-  // Creamos una funcion anonima pause:
+  // Creamos una funcion anonima pause: Fede
   const videoPause=()=>{
     videoRef.current.pause() // Creamos un pause para ejecutar en el video de referecia ref=videoRef.
   };
