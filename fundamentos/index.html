@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .galeria{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 80%;
+        }
+        .galeria div{
+            text-align: center;
+        }
+        img{
+            display: block;
+            margin: auto;
+        }
+    </style>    
+
+</head>
+<body>
+    <!--Creamos el Titulo-->
+    <h1 style="text-align: center">Galeria de Imagenes</h1>
+    <!--Creamos Formulario-->
+    <div style="text-align: center; margin-bottom: 20px;">
+
+        <input type="text" id="imagenURL" placeholder="URL de la imagen">
+        <input type="text" id="pieFoto" placeholder="Pie de foto">
+        <button onclick="agregaImagen()">Agregar Imagen</button>
+
+    </div>
+
+    <!--Creamos contendor-->
+    <div class="galeria" id="galeriaImagenes">
+        <div >
+            <img src="imgs/imagen_1.png" alt ="Imagen 1" width="300" height="250">
+            <p>Pie de foto Imagen 1</p>
+        </div>
+        <div >
+            <img src="imgs/imagen_2.png" alt ="Imagen 1" width="300" height="250">
+            <p>Pie de foto Imagen 2</p>
+        </div>
+
+        <div >
+            <img src="imgs/imagen_3.png" alt ="Imagen 1" width="300" height="250">
+            <p>Pie de foto Imagen 3</p>
+        </div>
+
+        <div >
+            <img src="imgs/imagen_4.png" alt ="Imagen 1" width="300" height="250">
+            <p>Pie de foto Imagen 4</p>
+        </div>
+    </div>
+
+    <!--Creamos codigo JavaScript-->
+    <script>
+
+        function agregaImagen(){
+
+            var url=document.getElementById("imagenURL").value;
+            var pie=document.getElementById("pieFoto").value;
+            var galeria=document.getElementById("galeriaImagenes");
+
+            if(url && pie){
+                var div=document.createElement("div"); // creamos el componente div html
+                var img=document.createElement("img"); // creamos el componente img html
+                img.src=url;                           // al componente le configuramos src.
+                img.width=300;
+                img.height=250;
+
+                var p=document.createElement("p");     // creamos el componente p
+                p.textContent=pie;                     // le configuramos el textContent
+
+                div.appendChild(img);                  // indicamos que img este dentro del div
+                div.appendChild(p);                    // indicamos que el p este dentro del div
+                galeria.appendChild(div);              // indicamos que el div este dentro de galeria
+
+                document.getElementById("imagenURL").value=""
+                document.getElementById("pieFoto").value=""
+
+            }else alert("Por favor introduce imagen y pie")
+
+        }
+
+    </script>
+
+
+</body>
+</html>
